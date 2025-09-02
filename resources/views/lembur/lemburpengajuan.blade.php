@@ -58,8 +58,10 @@
                         </div>
 
                         <div>
-                            <label for="waktu_selesai" class="block text-gray-700 font-medium mb-1">Waktu Selesai</label>
-                            <input type="time" id="waktu_selesai" name="waktu_selesai" value="{{ old('waktu_selesai') }}"
+                            <label for="waktu_selesai" class="block text-gray-700 font-medium mb-1">Waktu
+                                Selesai</label>
+                            <input type="time" id="waktu_selesai" name="waktu_selesai"
+                                value="{{ old('waktu_selesai') }}"
                                 class="w-full px-4 py-2 border border-[#FFA09B] rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FCC6FF] transition duration-300"
                                 required>
                             @error('waktu_selesai')
@@ -68,9 +70,14 @@
                         </div>
 
                         <div>
-                            <label for="keterangan_lembur" class="block text-gray-700 font-medium mb-1">Keterangan</label>
-                            <input type="text" id="keterangan_lembur" name="keterangan_lembur" value="{{ old('keterangan_lembur') }}"
+                            <label for="keterangan_lembur"
+                                class="block text-gray-700 font-medium mb-1">Keterangan</label>
+                            <input type="text" id="keterangan_lembur" name="keterangan_lembur"
+                                value="{{ old('keterangan_lembur') }}"
                                 class="w-full px-4 py-2 border border-[#FFA09B] rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FCC6FF] transition duration-300">
+                            @error('keterangan_lembur')
+                                <p class="text-red-600 text-sm">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
 

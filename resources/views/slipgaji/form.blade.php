@@ -69,6 +69,11 @@
                             <label class="block text-gray-700 font-medium mb-1">Metode Pembayaran</label>
                             <select name="metode_pembayaran" onchange="toggleRekeningField()"
                                 class="w-full px-4 py-2 border border-[#FFA09B] rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FCC6FF] transition duration-300">
+                                <option value="" disabled
+                                    {{ old('metode_pembayaran', $slip->metode_pembayaran ?? '') == '' ? 'selected' : '' }}>
+                                    Pilih Metode Pembayaran
+                                </option>
+
                                 <option value="cash"
                                     {{ old('metode_pembayaran', $slip->metode_pembayaran ?? '') == 'cash' ? 'selected' : '' }}>
                                     Cash</option>
@@ -76,6 +81,9 @@
                                     {{ old('metode_pembayaran', $slip->metode_pembayaran ?? '') == 'norek' ? 'selected' : '' }}>
                                     Transfer</option>
                             </select>
+                            @error('metode_pembayaran')
+                                <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div id="rekening_field">
@@ -83,6 +91,9 @@
                             <input type="text" name="nomor_rekening"
                                 value="{{ old('nomor_rekening', $slip->nomor_rekening ?? '') }}"
                                 class="w-full px-4 py-2 border border-[#FFA09B] rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FCC6FF] transition duration-300">
+                            @error('nomor_rekening')
+                                <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div>
@@ -125,6 +136,12 @@
                                 class="mt-2 text-sm text-pink-600 hover:underline focus:outline-none">
                                 + Tambah Rincian
                             </button>
+                            @error('rincian_label')
+                                <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
+                            @enderror
+                            @error('rincian_nominal')
+                                <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div>
@@ -166,6 +183,14 @@
                                 class="mt-2 text-sm text-pink-600 hover:underline focus:outline-none">
                                 + Tambah Potongan
                             </button>
+
+                            @error('potongan_label')
+                                <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
+                            @enderror
+                            @error('potongan_nominal')
+                                <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
+                            @enderror
+
                         </div>
 
                         <div>
@@ -190,6 +215,9 @@
                                     $bulanTerpilih = old('bulan', $slip->bulan ?? '');
                                 @endphp
 
+                                <option value="" disabled {{ $bulanTerpilih == '' ? 'selected' : '' }}>Pilih
+                                    Bulan</option>
+
                                 @foreach ($daftarBulan as $angka => $nama)
                                     <option value="{{ $angka }}"
                                         {{ $bulanTerpilih == $angka ? 'selected' : '' }}>
@@ -197,12 +225,21 @@
                                     </option>
                                 @endforeach
                             </select>
+                            @error('bulan')
+                                <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
+                            @enderror
+
                         </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Tahun</label>
                             <input type="number" name="tahun"
                                 value="{{ old('tahun', $slip->tahun ?? date('Y')) }}"
+                                placeholder="Enter Tahun"
                                 class="w-full px-4 py-2 border border-[#FFA09B] rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FCC6FF] transition duration-300">
+                            @error('tahun')
+                                <p class="text-sm text-red-500 mt-1">{{ $message }}</p>
+                            @enderror
+
                         </div>
                     </div>
                     <div class="flex gap-5 mt-8">

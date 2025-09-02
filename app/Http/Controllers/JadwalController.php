@@ -27,7 +27,9 @@ class JadwalController extends Controller
             $query->whereMonth('tanggal', $request->bulan);
         }
 
-         $jadwals = $query->orderBy('tanggal', 'asc')->paginate(10);
+        $jadwals = $query->orderBy('tanggal', 'desc')
+                        ->orderBy('id', 'desc')
+                        ->paginate(10);
 
         return view('kehadiran/jadwalkehadiran', compact('jadwals'));
     }

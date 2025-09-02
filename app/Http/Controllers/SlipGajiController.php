@@ -119,18 +119,19 @@ class SlipGajiController extends Controller
     {
         $request->validate([
             'metode_pembayaran' => 'required|in:cash,norek',
-            'nomor_rekening' => 'nullable|string',
+            'nomor_rekening' => 'required_if:metode_pembayaran,norek|nullable|string|max:100',
+
             'rincian_label' => 'required|array',
             'rincian_nominal' => 'required|array',
             'potongan_label' => 'required|array',
             'potongan_nominal' => 'required|array',
+
             'bulan' => 'required|integer|between:1,12',
-            'tahun' => 'required|integer|min:2000',
+            'tahun' => 'required|integer|min:2000|max:' . date('Y'),
         ]);
 
         $rincian = array_combine($request->rincian_label, $request->rincian_nominal);
         $potongan = array_combine($request->potongan_label, $request->potongan_nominal);
-
 
         $latestId = SlipGaji::max('id') + 1;
         $bulan = str_pad($request->bulan, 2, '0', STR_PAD_LEFT);
@@ -138,19 +139,20 @@ class SlipGajiController extends Controller
 
         SlipGaji::create([
             'user_id' => $id,
-            'nomor_slip' => $nomorSlip, // tambahkan ini
+            'nomor_slip' => $nomorSlip,
             'metode_pembayaran' => $request->metode_pembayaran,
             'nomor_rekening' => $request->metode_pembayaran === 'norek' ? $request->nomor_rekening : null,
             'rincian_gaji' => json_encode($rincian),
             'potongan_pajak' => json_encode($potongan),
             'bulan' => $request->bulan,
             'tahun' => $request->tahun,
-            'created_by' => Auth()->id() // misalnya kamu pakai guard 'admin'
+            'created_by' => Auth()->id(),
         ]);
 
         return redirect()->route('listslipgajipegawai', ['id' => $id])
-                        ->with('success', 'Slip gaji berhasil ditambahkan.');
+            ->with('success', 'Slip gaji berhasil ditambahkan.');
     }
+
 
 
     // Detail slip gaji
@@ -222,22 +224,24 @@ class SlipGajiController extends Controller
 
     public function update(Request $request, $id)
     {
-        $slip = SlipGaji::findOrFail($id);
-
         $request->validate([
             'metode_pembayaran' => 'required|in:cash,norek',
-            'nomor_rekening' => 'nullable|string',
+            'nomor_rekening' => 'required_if:metode_pembayaran,norek|nullable|string|max:100',
+
             'rincian_label' => 'required|array',
             'rincian_nominal' => 'required|array',
             'potongan_label' => 'required|array',
             'potongan_nominal' => 'required|array',
+
             'bulan' => 'required|integer|between:1,12',
-            'tahun' => 'required|integer|min:2000',
+            'tahun' => 'required|integer|min:2000|max:' . date('Y'),
         ]);
 
+        // Gabungkan array rincian & potongan
         $rincian = array_combine($request->rincian_label, $request->rincian_nominal);
         $potongan = array_combine($request->potongan_label, $request->potongan_nominal);
 
+        $slip = SlipGaji::findOrFail($id);
         $slip->update([
             'metode_pembayaran' => $request->metode_pembayaran,
             'nomor_rekening' => $request->metode_pembayaran === 'norek' ? $request->nomor_rekening : null,
@@ -245,11 +249,13 @@ class SlipGajiController extends Controller
             'potongan_pajak' => json_encode($potongan),
             'bulan' => $request->bulan,
             'tahun' => $request->tahun,
+            'updated_by' => Auth()->id(),
         ]);
 
-        return redirect()->route('listslipgajipegawai', $slip->user_id)
-                        ->with('success', 'Slip gaji berhasil diperbarui.');
+        return redirect()->route('slipgaji.show', $slip->id)
+            ->with('success', 'Slip gaji berhasil diperbarui.');
     }
+
 
 
     public function download($id)

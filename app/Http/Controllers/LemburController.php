@@ -27,7 +27,7 @@ class LemburController extends Controller
         'tanggal' => 'required|date',
         'waktu_mulai' => 'required|date_format:H:i',
         'waktu_selesai' => 'required|date_format:H:i|after:waktu_mulai',
-        'keterangan_lembur' => 'nullable|string',
+        'keterangan_lembur' => 'required|string',
     ]);
 
     $today = \Carbon\Carbon::today()->toDateString();

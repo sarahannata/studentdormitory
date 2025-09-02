@@ -20,7 +20,18 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-        Event::create($request->all());
+        $validated = $request->validate([
+            'nama' => 'required|string|max:255',
+            'tanggal' => 'required|date',
+            'venue' => 'required|string|max:255',
+            'kategori' => 'required|in:Tamu Internal,Tamu Eksternal',
+            'jumlah_tamu' => 'required|integer|min:1',
+            'mulai' => 'required',
+            'selesai' => 'required|after_or_equal:mulai',
+            'catatan' => 'required|string',
+        ]);
+
+        Event::create($validated);
         return redirect()->route('dashboard')->with('success', 'Event berhasil ditambahkan!');
     }
 
@@ -32,8 +43,20 @@ class EventController extends Controller
 
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'nama' => 'required|string|max:255',
+            'tanggal' => 'required|date',
+            'venue' => 'required|string|max:255',
+            'kategori' => 'required|in:Tamu Internal,Tamu Eksternal',
+            'jumlah_tamu' => 'required|integer|min:1',
+            'mulai' => 'required',
+            'selesai' => 'required|after_or_equal:mulai',
+            'catatan' => 'required|string',
+        ]);
+
         $event = Event::findOrFail($id);
-        $event->update($request->all());
+        $event->update($validated);
+
         return redirect()->route('event.show', $event->id)->with('success', 'Event berhasil diperbarui!');
     }
 

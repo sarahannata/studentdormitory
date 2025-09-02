@@ -41,6 +41,9 @@
                                 <input type="text" id="acara" name="nama"
                                     value="{{ old('nama', $event->nama ?? '') }}"
                                     class="w-full px-4 py-2 border border-[#FFA09B] rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FCC6FF] transition duration-300">
+                                @error('nama')
+                                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <div>
@@ -48,6 +51,9 @@
                                 <input type="date" id="tanggal" name="tanggal"
                                     value="{{ old('tanggal', $event->tanggal ?? '') }}"
                                     class="w-full px-4 py-2 border border-[#FFA09B] rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FCC6FF] transition duration-300">
+                                @error('tanggal')
+                                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <div>
@@ -55,6 +61,9 @@
                                 <input type="text" id="venue" name="venue"
                                     value="{{ old('venue', $event->venue ?? '') }}"
                                     class="w-full px-4 py-2 border border-[#FFA09B] rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FCC6FF] transition duration-300">
+                                @error('venue')
+                                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <div>
@@ -70,6 +79,9 @@
                                     <option value="Tamu Eksternal"
                                         {{ old('kategori', $event->kategori ?? '') == 'Tamu Eksternal' ? 'selected' : '' }}>
                                         Tamu Eksternal</option>
+                                    @error('kategori')
+                                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                    @enderror
                                 </select>
                             </div>
                         </div>
@@ -82,12 +94,18 @@
                                 <input type="number" name="jumlah_tamu"
                                     value="{{ old('jumlah_tamu', $event->jumlah_tamu ?? '') }}"
                                     class="w-full px-4 py-2 border border-[#FFA09B] rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FCC6FF] transition duration-300">
+                                @error('jumlah_tamu')
+                                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <div>
                                 <label for="mulai" class="block text-gray-700 font-medium mb-1">Jam Mulai</label>
                                 <input type="time" name="mulai" value="{{ old('mulai', $event->mulai ?? '') }}"
                                     class="w-full px-4 py-2 border border-[#FFA09B] rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FCC6FF] transition duration-300">
+                                @error('mulai')
+                                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <div>
@@ -95,12 +113,18 @@
                                 <input type="time" name="selesai"
                                     value="{{ old('selesai', $event->selesai ?? '') }}"
                                     class="w-full px-4 py-2 border border-[#FFA09B] rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FCC6FF] transition duration-300">
+                                @error('selesai')
+                                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <div>
                                 <label for="catatan" class="block text-gray-700 font-medium mb-1">Catatan</label>
                                 <textarea name="catatan" rows="4"
                                     class="w-full px-4 py-2 border border-[#FFA09B] rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FCC6FF] resize-none transition duration-300">{{ old('catatan', $event->catatan ?? '') }}</textarea>
+                                @error('catatan')
+                                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="flex gap-5 mt-8">
                                 <button type="submit"

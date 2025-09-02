@@ -18,7 +18,7 @@
         <div class="flex-1 p-6 fade-in">
             <div class="flex justify-between items-center mb-8">
                 <h1 class="text-2xl font-bold text-pink-600 flex items-center gap-2">
-                    👤 Tambah Akun
+                    👤 Tambah Profile
                 </h1>
                 @include('components.ava')
             </div>

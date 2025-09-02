@@ -59,7 +59,7 @@
                             <label for="keterangan" class="block text-gray-700 font-medium mb-1">Keterangan</label>
                             <select name="keterangan" required
                                 class="w-full px-4 py-2 border border-[#FFA09B] rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FCC6FF] transition duration-300">
-                                <option disabled {{ old('keterangan') == null ? 'selected' : '' }}>Pilih Keterangan</option>
+                                 <option value="" disabled {{ old('keterangan') == null ? 'selected' : '' }}>Pilih Keterangan</option>
                                 <option value="Sakit" {{ old('keterangan') == 'Sakit' ? 'selected' : '' }}>Sakit</option>
                                 <option value="Izin" {{ old('keterangan') == 'Izin' ? 'selected' : '' }}>Izin</option>
                             </select>

@@ -13,20 +13,23 @@
         </div>
         <ul>
             <li class="mb-3">
-                <a class="flex items-center hover:text-pink-500 transition-all duration-200" href="{{ route('dashboard') }}">
+                <a class="flex items-center hover:text-pink-500 transition-all duration-200"
+                    href="{{ route('dashboard') }}">
                     <i class="fas fa-dashboard mr-3"></i> Dashboard
                 </a>
             </li>
             @can('admin')
                 <li class="mb-3">
-                    <a class="flex items-center hover:text-pink-500 transition-all duration-200" href="{{ route('user.index') }}">
+                    <a class="flex items-center hover:text-pink-500 transition-all duration-200"
+                        href="{{ route('user.index') }}">
                         <i class="fas fa-user-cog mr-3"></i> Kelola Profile
                     </a>
                 </li>
             @endcan
             @cannot('admin')
                 <li class="mb-3">
-                    <a class="flex items-center hover:text-pink-500 transition-all duration-200" href="{{ route('profile') }}">
+                    <a class="flex items-center hover:text-pink-500 transition-all duration-200"
+                        href="{{ route('profile') }}">
                         <i class="fas fa-user mr-3"></i> Profile
                     </a>
                 </li>
@@ -49,8 +52,9 @@
 
             @can('admin')
                 <li class="mb-3">
-                    <a class="flex items-center hover:text-pink-500 transition-all duration-200" href="{{ route('slipgaji.index') }}">
-                        <i class="fas fa-file-invoice mr-3"></i> List Slip Gaji Pegawai
+                    <a class="flex items-center hover:text-pink-500 transition-all duration-200"
+                        href="{{ route('slipgaji.index') }}">
+                        <i class="fas fa-file-invoice mr-3"></i> Rekap Slip Gaji Pegawai
                     </a>
                 </li>
             @endcan
@@ -72,13 +76,15 @@
             @endcannot
             @can('admin')
                 <li class="mb-3">
-                    <a class="flex items-center hover:text-pink-500 transition-all duration-200" href="{{ route('jadwal.index') }}">
+                    <a class="flex items-center hover:text-pink-500 transition-all duration-200"
+                        href="{{ route('jadwal.index') }}">
                         <i class="fas fa-calendar-alt mr-3"></i> Jadwal Kehadiran
                     </a>
                 </li>
                 <li class="mb-3">
-                    <a class="flex items-center hover:text-pink-500 transition-all duration-200" href="{{ route('kehadiranpegawai.index') }}">
-                        <i class="fas fa-users mr-3"></i> List Kehadiran Pegawai
+                    <a class="flex items-center hover:text-pink-500 transition-all duration-200"
+                        href="{{ route('kehadiranpegawai.index') }}">
+                        <i class="fas fa-users mr-3"></i> Rekap Kehadiran
                     </a>
                 </li>
             @endcan
@@ -87,36 +93,40 @@
                     <li class="mb-3">
                         <a class="flex items-center hover:text-pink-500 transition-all duration-200"
                             href="{{ route('kehadiran.pegawai', ['id' => Auth::id()]) }}">
-                            <i class="fas fa-user-clock mr-3"></i> Kehadiran Pegawai
+                            <i class="fas fa-user-clock mr-3"></i> Rekap Kehadiran
                         </a>
                     </li>
                 @endcannot
             @endcannot
             @can('pegawai')
                 <li class="mb-3">
-                    <a class="flex items-center hover:text-pink-500 transition-all duration-200" href="{{ route('cutiperizinan.user') }}">
+                    <a class="flex items-center hover:text-pink-500 transition-all duration-200"
+                        href="{{ route('cutiperizinan.user') }}">
                         <i class="fas fa-plane-departure mr-3"></i> Cuti/Perizinan
                     </a>
                 </li>
             @endcan
             @can('pimpinan')
                 <li class="mb-3">
-                    <a class="flex items-center hover:text-pink-500 transition-all duration-200" href="{{ route('cutiperizinan.admin') }}">
-                        <i class="fas fa-list-alt mr-3"></i> List Cuti/Perizinan
+                    <a class="flex items-center hover:text-pink-500 transition-all duration-200"
+                        href="{{ route('cutiperizinan.admin') }}">
+                        <i class="fas fa-list-alt mr-3"></i> Rekap Cuti/Perizinan
                     </a>
                 </li>
             @endcan
             @can('pegawai')
                 <li class="mb-3">
-                    <a class="flex items-center hover:text-pink-500 transition-all duration-200" href="{{ route('lembur.user') }}">
+                    <a class="flex items-center hover:text-pink-500 transition-all duration-200"
+                        href="{{ route('lembur.user') }}">
                         <i class="fas fa-business-time mr-3"></i> Lembur
                     </a>
                 </li>
             @endcan
             @can('pimpinan')
                 <li class="mb-3">
-                    <a class="flex items-center hover:text-pink-500 transition-all duration-200" href="{{ route('lembur.admin') }}">
-                        <i class="fas fa-briefcase mr-3"></i> List Lembur
+                    <a class="flex items-center hover:text-pink-500 transition-all duration-200"
+                        href="{{ route('lembur.admin') }}">
+                        <i class="fas fa-briefcase mr-3"></i> Rekap Lembur
                     </a>
                 </li>
             @endcan
