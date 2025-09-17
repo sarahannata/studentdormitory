@@ -1,66 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Dormitory Employee Information System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This project is a **Final Year Project** developed as a web-based information system for managing dormitory employees.  
+The system is built with **Laravel** (using Blade as the default view engine) and styled with **Tailwind CSS** for a clean and modern user interface.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Employee
+- View **events** (upcoming & detail).
+- Submit **leave and permission requests**.
+- View **leave/permission history**.
+- View and **download personal payslips (PDF)**.
+- Fill out **attendance** based on schedule created by admin.
+- View **personal attendance records**.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Admin / Manager
+- Manage **events** (create, edit, view, delete).
+- Create and manage **employee payslips** (downloadable by employees).
+- Create and manage **attendance schedules**.
+- View and monitor **attendance records** of all employees.
 
-## Learning Laravel
+### 👔 Division Leader (Pimpinan)
+- Review and approve/reject **leave and permission requests** submitted by employees in their division.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 🛠️ Tech Stack
+- **Backend**: Laravel 9 (MVC Architecture)  
+- **Frontend**: Laravel Blade + Tailwind CSS  
+- **Database**: MySQL  
+- **PDF Generator**: Laravel DOMPDF
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 📸 Screenshots & Preview
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 1. Login Page
+<img width="800" alt="screencapture-127-0-0-1-8000-auth-login-2025-07-08-15_43_00" src="https://github.com/user-attachments/assets/2541caa6-87f1-4c44-a9cf-f15096a60c65" />
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 2. Employee Dashboard
+<img width="800" alt="screencapture-127-0-0-1-8000-2025-07-08-15_47_12" src="https://github.com/user-attachments/assets/732263e8-d8dc-4dc2-b014-1986eb6c9217" />
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+### 3. Admin Dashboard
+<img width="800" alt="screencapture-127-0-0-1-8000-2025-07-08-15_45_06" src="https://github.com/user-attachments/assets/e91a396b-4e4a-4fb3-8a91-0ff7e9e8cf04" />
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+### 4. Attendance
+#### Attendance Schedule (Admin)
+<img width="800" alt="screencapture-127-0-0-1-8000-jadwal-2025-07-08-16_01_58" src="https://github.com/user-attachments/assets/e2fc847b-daf0-4949-9737-74d80561c5a0" />
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### Fill Attendance (Employee)
+<img width="800" alt="screencapture-127-0-0-1-8000-kehadiran-pegawai-8-2025-07-11-21_52_30" src="https://github.com/user-attachments/assets/b3a42be3-7463-478e-9767-dda01813d439" />
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 5. Leave & Permission
+#### Leave Request Form (Employee)
+<img width="800" alt="screencapture-127-0-0-1-8000-cuti-perizinan-create-2025-07-11-21_53_52" src="https://github.com/user-attachments/assets/5bc41928-6d57-4b83-bfec-0de9fe988bdb" />
+
+#### Leave Approval (Division Leader)
+<img width="800" alt="screencapture-127-0-0-1-8000-cuti-perizinan-admin-2025-07-08-16_22_09 (1)" src="https://github.com/user-attachments/assets/ea4d72ad-15bc-49b1-9a91-a37bf45a2994" />
+
+---
+
+### 6. Payslip
+#### Payslip Detail (Employee)
+<img width="800" alt="screencapture-127-0-0-1-8000-slipgaji-pegawai-4-2025-07-11-21_46_44" src="https://github.com/user-attachments/assets/2df641ed-ff94-486f-b531-521c807f698e" />
+
+#### Create Payslip (Admin)
+<img width="800" alt="screencapture-127-0-0-1-8000-slipgaji-pegawai-3-create-2025-07-11-21_32_18" src="https://github.com/user-attachments/assets/49fdbb72-e660-4a97-8e4a-d2a640672788" />
+
